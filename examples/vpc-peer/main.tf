@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 module "site-a" {
-  source    = "github.com/renan-campos/tf_aws_wizardry/test-site"
+  source    = "../../test-site"
   site_name = "site-a"
   vpc_cidr  = "10.0.0.0/16"
   sub_cidr  = "10.0.0.0/20"
@@ -15,7 +15,7 @@ module "site-a" {
 }
 
 module "site-b" {
-  source    = "github.com/renan-campos/tf_aws_wizardry/test-site"
+  source    = "../../test-site"
   site_name = "site-b"
   vpc_cidr  = "11.0.0.0/16"
   sub_cidr  = "11.0.0.0/20"
@@ -23,7 +23,7 @@ module "site-b" {
 }
 
 module "site-c" {
-  source    = "github.com/renan-campos/tf_aws_wizardry/test-site"
+  source    = "../../test-site"
   site_name = "site-c"
   vpc_cidr  = "11.1.0.0/16"
   sub_cidr  = "11.1.0.0/20"
@@ -31,7 +31,7 @@ module "site-c" {
 }
 
 module "peer-a-b" {
-  source        = "github.com/renan-campos/tf_aws_wizardry/vpc-peer"
+  source        = "../../vpc-peer"
   hub_vpc_id    = module.site-a.vpc_id
   hub_rt_id     = module.site-a.rt_id
   hub_subnet_id = module.site-a.subnet_id
@@ -42,7 +42,7 @@ module "peer-a-b" {
 }
 
 module "peer-a-c" {
-  source        = "github.com/renan-campos/tf_aws_wizardry/vpc-peer"
+  source        = "../../vpc-peer"
   hub_vpc_id    = module.site-a.vpc_id
   hub_rt_id     = module.site-a.rt_id
   hub_subnet_id = module.site-a.subnet_id

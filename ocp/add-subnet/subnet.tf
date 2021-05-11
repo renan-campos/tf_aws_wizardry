@@ -36,7 +36,7 @@ data "aws_nat_gateway" "to_public" {
 resource "aws_route_table" "added" {
   vpc_id = data.aws_vpc.cluster.id
   tags = {
-    Name = "${var.infra_id}-${var.subnet_name}-${var.az}a"
+    Name = "${var.infra_id}-${var.subnet_name}-${var.az}"
   }
 }
 
